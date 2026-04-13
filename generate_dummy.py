@@ -28,12 +28,14 @@ for asin, base_price in ASINs:
                 change = random.uniform(-0.30, 0.30)
 
             price = round(max(base_price * 0.7, price + change), 2)
-            rows.append({
-                "asin": asin,
-                "url": f"https://www.amazon.com/dp/{asin}/?th=1&psc=1",
-                "price": price,
-                "timestamp": ts.isoformat(),
-            })
+            rows.append(
+                {
+                    "asin": asin,
+                    "url": f"https://www.amazon.com/dp/{asin}/?th=1&psc=1",
+                    "price": price,
+                    "timestamp": ts.isoformat(),
+                }
+            )
 
 rows.sort(key=lambda r: r["timestamp"])
 
